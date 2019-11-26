@@ -44,7 +44,7 @@ namespace Etch.OrchardCore.Favicon.Controllers
             }
 
             _contentTypeProvider.TryGetContentType(settings.AppleTouchIconPath, out var contentType);
-            return File(await _mediaFileStore.GetFileStreamAsync(settings.FaviconPath), contentType ?? "image/png");
+            return File(await _mediaFileStore.GetFileStreamAsync(settings.FaviconPath), contentType ?? DefaultMimeTypes.AppleTouchIcon);
         }
 
         [HttpGet]
@@ -64,7 +64,7 @@ namespace Etch.OrchardCore.Favicon.Controllers
             }
 
             _contentTypeProvider.TryGetContentType(settings.BrowserConfigPath, out var contentType);
-            return File(await _mediaFileStore.GetFileStreamAsync(settings.BrowserConfigPath), contentType ?? "application/xml");
+            return File(await _mediaFileStore.GetFileStreamAsync(settings.BrowserConfigPath), contentType ?? DefaultMimeTypes.BrowserConfig);
         }
 
         [HttpGet]
@@ -79,7 +79,7 @@ namespace Etch.OrchardCore.Favicon.Controllers
             }
 
             _contentTypeProvider.TryGetContentType(settings.FaviconPath, out var contentType);
-            return File(await _mediaFileStore.GetFileStreamAsync(settings.FaviconPath), contentType ?? "image/x-icon");
+            return File(await _mediaFileStore.GetFileStreamAsync(settings.FaviconPath), contentType ?? DefaultMimeTypes.Favicon);
         }
 
         [HttpGet]
@@ -94,7 +94,7 @@ namespace Etch.OrchardCore.Favicon.Controllers
             }
 
             _contentTypeProvider.TryGetContentType(settings.TilePath, out var contentType);
-            return File(await _mediaFileStore.GetFileStreamAsync(settings.TilePath), contentType ?? "image/png");
+            return File(await _mediaFileStore.GetFileStreamAsync(settings.TilePath), contentType ?? DefaultMimeTypes.Tile);
         }
 
         [HttpGet]
@@ -109,7 +109,7 @@ namespace Etch.OrchardCore.Favicon.Controllers
             }
 
             _contentTypeProvider.TryGetContentType(settings.TileWidePath, out var contentType);
-            return File(await _mediaFileStore.GetFileStreamAsync(settings.TileWidePath), contentType ?? "image/x-icon");
+            return File(await _mediaFileStore.GetFileStreamAsync(settings.TileWidePath), contentType ?? DefaultMimeTypes.Tile);
         }
 
         [HttpGet]
@@ -124,7 +124,7 @@ namespace Etch.OrchardCore.Favicon.Controllers
             }
 
             _contentTypeProvider.TryGetContentType(settings.WebAppManifestPath, out var contentType);
-            return File(await _mediaFileStore.GetFileStreamAsync(settings.WebAppManifestPath), contentType ?? "application/manifest+json");
+            return File(await _mediaFileStore.GetFileStreamAsync(settings.WebAppManifestPath), contentType ?? DefaultMimeTypes.WebAppManifest);
         }
 
         #endregion
@@ -143,7 +143,7 @@ namespace Etch.OrchardCore.Favicon.Controllers
       <square310x310logo src=""{0}/tile.png""/>
     </tile>
   </msapplication>
-</browserconfig>", Request.PathBase), "application/xml");
+</browserconfig>", Request.PathBase), DefaultMimeTypes.BrowserConfig);
         }
 
         private async Task<FaviconSettings> GetSettings()
