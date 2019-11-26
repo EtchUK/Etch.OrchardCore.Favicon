@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.StaticFiles;
 using OrchardCore.ContentManagement;
 using OrchardCore.Entities;
-using OrchardCore.FileStorage;
 using OrchardCore.Media;
 using OrchardCore.Settings;
 using System.Threading.Tasks;
@@ -54,9 +53,14 @@ namespace Etch.OrchardCore.Favicon.Controllers
         {
             var settings = await GetSettings();
 
-            if (settings == null || !settings.HasBrowserConfig)
+            if (settings == null || (!settings.HasBrowserConfig && !(settings.HasTile || settings.HasTileWide)))
             {
                 return NotFound();
+            }
+
+            if (!settings.HasBrowserConfig)
+            {
+                return GenerateBrowserConfig();
             }
 
             _contentTypeProvider.TryGetContentType(settings.BrowserConfigPath, out var contentType);
@@ -126,6 +130,21 @@ namespace Etch.OrchardCore.Favicon.Controllers
         #endregion
 
         #region Helper Methods
+
+        private IActionResult GenerateBrowserConfig()
+        {
+            return Content(string.Format(@"<?xml version=""1.0"" encoding=""utf-8""?>
+<browserconfig>
+  <msapplication>
+    <tile>
+      <square70x70logo src=""{0}/tile.png""/>
+      <square150x150logo src=""{0}/tile.png""/>
+      <wide310x150logo src=""{0}/tile-wide.png""/>
+      <square310x310logo src=""{0}/tile.png""/>
+    </tile>
+  </msapplication>
+</browserconfig>", Request.PathBase), "application/xml");
+        }
 
         private async Task<FaviconSettings> GetSettings()
         {

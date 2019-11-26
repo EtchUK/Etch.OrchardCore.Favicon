@@ -63,7 +63,7 @@ Both the "Tile" and "Tile Wide" should ideally be `.png` files and when selected
 
 #### Browser Config
 
-This must be an `.xml` file and when selected will render when a request is made to `/browserconfig.xml`. When [tiles](#tiles) have been defined these should be included in the contents of the XML file, as shown below.
+This must be an `.xml` file and when selected will render when a request is made to `/browserconfig.xml`. When [tiles](#tiles) have been defined these should be included in the contents of the XML file, as shown below. Alternatively you can omit selecting a browser config file and select tile images and the browserconfig will be generated replicating the example shown below.
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
