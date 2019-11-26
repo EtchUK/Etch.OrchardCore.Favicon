@@ -1,0 +1,130 @@
+{
+  "steps": [
+    {
+      "name": "ContentDefinition",
+      "ContentTypes": [
+        {
+          "Name": "FaviconSettings",
+          "DisplayName": "Favicon",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Stereotype": "CustomSettings"
+            },
+            "FullTextAspectSettings": {}
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "FaviconSettings",
+              "Name": "FaviconSettings",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "ContentParts": [
+        {
+          "Name": "FaviconSettings",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "MediaField",
+              "Name": "Favicon",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Favicon",
+                  "Position": "0"
+                },
+                "MediaFieldSettings": {
+                  "Hint": "Icon should be a .ico with dimensions of 192x192.",
+                  "Multiple": false
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "MediaField",
+              "Name": "AppleTouchIcon",
+              "DisplayName": "Apply Touch Icon",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "AppleTouchIcon",
+                  "Position": "1"
+                },
+                "MediaFieldSettings": {
+                  "Hint": "Icon should be a .png with dimensions of 192x192.",
+                  "Multiple": false
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "MediaField",
+              "Name": "Tile",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Tile",
+                  "Position": "2"
+                },
+                "MediaFieldSettings": {
+                  "Hint": "Tile should be a .png with dimensions of 558x558.",
+                  "Multiple": false
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "MediaField",
+              "Name": "TileWide",
+              "DisplayName": "Tile Wide",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "TileWide",
+                  "Position": "3"
+                },
+                "MediaFieldSettings": {
+                  "Hint": "Tile should be a .png with dimensions of 558x270.",
+                  "Multiple": false
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "MediaField",
+              "Name": "BrowserConfig",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Browser Config",
+                  "Position": "4"
+                },
+                "MediaFieldSettings": {
+                  "Hint": "Config file is used to customize the tile displayed when users pin your site to the Windows 8.1 start screen. In there you can define custom tile colors, custom images or even live tiles.",
+                  "Multiple": false
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "MediaField",
+              "Name": "WebAppManifest",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Web App Manifest",
+                  "Position": "5"
+                },
+                "MediaFieldSettings": {
+                  "Hint": "Provides information about a web application in a JSON text file.",
+                  "Multiple": false
+                },
+                "ContentIndexSettings": {}
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
