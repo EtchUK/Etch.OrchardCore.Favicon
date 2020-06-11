@@ -6,6 +6,36 @@ namespace Etch.OrchardCore.Favicon.Models
 {
     public class FaviconSettings : ContentPart
     {
+        #region Android Icon
+
+        public string AndroidLargeIconPath
+        {
+            get
+            {
+                return this.Get<MediaField>("AndroidLargeIcon")?.Paths?.FirstOrDefault() ?? null;
+            }
+        }
+
+        public string AndroidSmallIconPath
+        {
+            get
+            {
+                return this.Get<MediaField>("AndroidSmallIcon")?.Paths?.FirstOrDefault() ?? null;
+            }
+        }
+
+        public bool HasAndroidLargeIcon
+        {
+            get { return this.Get<MediaField>("AndroidLargeIcon")?.Paths?.Any() ?? false; }
+        }
+
+        public bool HasAndroidSmallIcon
+        {
+            get { return this.Get<MediaField>("AndroidSmallIcon")?.Paths?.Any() ?? false; }
+        }
+
+        #endregion
+
         #region Apple Touch Icon
 
         public string AppleTouchIconPath
@@ -42,7 +72,7 @@ namespace Etch.OrchardCore.Favicon.Models
 
         #region Favicon
 
-        public string FaviconPath
+        public string DefaultFaviconPath
         {
             get
             {
@@ -50,14 +80,97 @@ namespace Etch.OrchardCore.Favicon.Models
             }
         }
 
-        public bool HasFavicon
+        public string FallbackFaviconPath
+        {
+            get
+            {
+                return this.Get<MediaField>("FallbackFavicon")?.Paths?.FirstOrDefault() ?? null;
+            }
+        }
+
+        public bool HasDefaultFavicon
         {
             get { return this.Get<MediaField>("Favicon")?.Paths?.Any() ?? false; }
+        }
+
+        public bool HasFallbackFavicon
+        {
+            get { return this.Get<MediaField>("FallbackFavicon")?.Paths?.Any() ?? false; }
+        }
+
+        public bool HasLargeFavicon
+        {
+            get { return this.Get<MediaField>("LargeFavicon")?.Paths?.Any() ?? false; }
+        }
+
+        public string LargeFaviconPath
+        {
+            get
+            {
+                return this.Get<MediaField>("LargeFavicon")?.Paths?.FirstOrDefault() ?? null;
+            }
+        }
+
+        #endregion
+
+        #region SafariPinnedTab
+
+        public bool HasSafariPinnedTab
+        {
+            get { return this.Get<MediaField>("SafariPinnedTab")?.Paths?.Any() ?? false; }
+        }
+
+        public bool HasSafariPinnedTabColour
+        {
+            get { return !string.IsNullOrWhiteSpace(this.Get<TextField>("SafariPinnedTabColour")?.Text); }
+        }
+
+        public string SafariPinnedTabColourValue
+        {
+            get
+            {
+                return this.Get<TextField>("SafariPinnedTabColour")?.Text ?? null;
+            }
+        }
+
+        public string SafariPinnedTabPath
+        {
+            get
+            {
+                return this.Get<MediaField>("SafariPinnedTab")?.Paths?.FirstOrDefault() ?? null;
+            }
+        }
+
+        #endregion
+
+        #region Theme
+
+        public bool HasThemeColour
+        {
+            get { return !string.IsNullOrWhiteSpace(this.Get<TextField>("ThemeColour")?.Text); }
+        }
+
+        public string ThemeColourValue
+        {
+            get
+            {
+                return this.Get<TextField>("ThemeColour")?.Text ?? null;
+            }
         }
 
         #endregion
 
         #region Tile
+
+        public bool HasTile
+        {
+            get { return this.Get<MediaField>("Tile")?.Paths?.Any() ?? false; }
+        }
+
+        public bool HasTileColour
+        {
+            get { return !string.IsNullOrWhiteSpace(this.Get<TextField>("TileColour")?.Text); }
+        }
 
         public string TilePath
         {
@@ -67,26 +180,12 @@ namespace Etch.OrchardCore.Favicon.Models
             }
         }
 
-        public bool HasTile
-        {
-            get { return this.Get<MediaField>("Tile")?.Paths?.Any() ?? false; }
-        }
-
-        #endregion
-
-        #region Tile Wide
-
-        public string TileWidePath
+        public string TileColourValue
         {
             get
             {
-                return this.Get<MediaField>("TileWide")?.Paths?.FirstOrDefault() ?? null;
+                return this.Get<TextField>("TileColour")?.Text ?? null;
             }
-        }
-
-        public bool HasTileWide
-        {
-            get { return this.Get<MediaField>("TileWide")?.Paths?.Any() ?? false; }
         }
 
         #endregion

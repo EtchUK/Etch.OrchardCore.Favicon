@@ -33,7 +33,37 @@ namespace Etch.OrchardCore.Favicon.Controllers
         #region Actions
 
         [HttpGet]
-        [Route("icon.png")]
+        [Route("android-chrome-192x192.png")]
+        public async Task<IActionResult> AndroidSmallIcon()
+        {
+            var settings = await GetSettings();
+
+            if (settings == null || !settings.HasAndroidSmallIcon)
+            {
+                return NotFound();
+            }
+
+            _contentTypeProvider.TryGetContentType(settings.AndroidSmallIconPath, out var contentType);
+            return File(await _mediaFileStore.GetFileStreamAsync(settings.AndroidSmallIconPath), contentType ?? DefaultMimeTypes.PngIcon);
+        }
+
+        [HttpGet]
+        [Route("android-chrome-512x512.png")]
+        public async Task<IActionResult> AndroidLargeIcon()
+        {
+            var settings = await GetSettings();
+
+            if (settings == null || !settings.HasAndroidLargeIcon)
+            {
+                return NotFound();
+            }
+
+            _contentTypeProvider.TryGetContentType(settings.AndroidLargeIconPath, out var contentType);
+            return File(await _mediaFileStore.GetFileStreamAsync(settings.AndroidLargeIconPath), contentType ?? DefaultMimeTypes.PngIcon);
+        }
+
+        [HttpGet]
+        [Route("apple-touch-icon.png")]
         public async Task<IActionResult> AppleTouchIcon()
         {
             var settings = await GetSettings();
@@ -44,7 +74,7 @@ namespace Etch.OrchardCore.Favicon.Controllers
             }
 
             _contentTypeProvider.TryGetContentType(settings.AppleTouchIconPath, out var contentType);
-            return File(await _mediaFileStore.GetFileStreamAsync(settings.FaviconPath), contentType ?? DefaultMimeTypes.AppleTouchIcon);
+            return File(await _mediaFileStore.GetFileStreamAsync(settings.AppleTouchIconPath), contentType ?? DefaultMimeTypes.PngIcon);
         }
 
         [HttpGet]
@@ -53,7 +83,7 @@ namespace Etch.OrchardCore.Favicon.Controllers
         {
             var settings = await GetSettings();
 
-            if (settings == null || (!settings.HasBrowserConfig && !(settings.HasTile || settings.HasTileWide)))
+            if (settings == null || (!settings.HasBrowserConfig && !settings.HasTile))
             {
                 return NotFound();
             }
@@ -73,13 +103,73 @@ namespace Etch.OrchardCore.Favicon.Controllers
         {
             var settings = await GetSettings();
 
-            if (settings == null || !settings.HasFavicon)
+            if (settings == null || !settings.HasFallbackFavicon)
             {
                 return NotFound();
             }
 
-            _contentTypeProvider.TryGetContentType(settings.FaviconPath, out var contentType);
-            return File(await _mediaFileStore.GetFileStreamAsync(settings.FaviconPath), contentType ?? DefaultMimeTypes.Favicon);
+            _contentTypeProvider.TryGetContentType(settings.FallbackFaviconPath, out var contentType);
+            return File(await _mediaFileStore.GetFileStreamAsync(settings.FallbackFaviconPath), contentType ?? DefaultMimeTypes.Favicon);
+        }
+
+        [HttpGet]
+        [Route("favicon-32x32.png")]
+        public async Task<IActionResult> FaviconLarge()
+        {
+            var settings = await GetSettings();
+
+            if (settings == null || !settings.HasLargeFavicon)
+            {
+                return NotFound();
+            }
+
+            _contentTypeProvider.TryGetContentType(settings.LargeFaviconPath, out var contentType);
+            return File(await _mediaFileStore.GetFileStreamAsync(settings.LargeFaviconPath), contentType ?? DefaultMimeTypes.PngIcon);
+        }
+
+        [HttpGet]
+        [Route("favicon-16x16.png")]
+        public async Task<IActionResult> FaviconDefault()
+        {
+            var settings = await GetSettings();
+
+            if (settings == null || !settings.HasDefaultFavicon)
+            {
+                return NotFound();
+            }
+
+            _contentTypeProvider.TryGetContentType(settings.DefaultFaviconPath, out var contentType);
+            return File(await _mediaFileStore.GetFileStreamAsync(settings.DefaultFaviconPath), contentType ?? DefaultMimeTypes.PngIcon);
+        }
+
+        [HttpGet]
+        [Route("icon.png")]
+        public async Task<IActionResult> Icon()
+        {
+            var settings = await GetSettings();
+
+            if (settings == null || !settings.HasAppleTouchIcon)
+            {
+                return NotFound();
+            }
+
+            _contentTypeProvider.TryGetContentType(settings.AppleTouchIconPath, out var contentType);
+            return File(await _mediaFileStore.GetFileStreamAsync(settings.AppleTouchIconPath), contentType ?? DefaultMimeTypes.PngIcon);
+        }
+
+        [HttpGet]
+        [Route("safari-pinned-tab.svg")]
+        public async Task<IActionResult> SafariPinnedTab()
+        {
+            var settings = await GetSettings();
+
+            if (settings == null || !settings.HasSafariPinnedTab)
+            {
+                return NotFound();
+            }
+
+            _contentTypeProvider.TryGetContentType(settings.SafariPinnedTabPath, out var contentType);
+            return File(await _mediaFileStore.GetFileStreamAsync(settings.SafariPinnedTabPath), contentType ?? DefaultMimeTypes.SvgIcon);
         }
 
         [HttpGet]
@@ -95,21 +185,6 @@ namespace Etch.OrchardCore.Favicon.Controllers
 
             _contentTypeProvider.TryGetContentType(settings.TilePath, out var contentType);
             return File(await _mediaFileStore.GetFileStreamAsync(settings.TilePath), contentType ?? DefaultMimeTypes.Tile);
-        }
-
-        [HttpGet]
-        [Route("tile-wide.png")]
-        public async Task<IActionResult> TileWide()
-        {
-            var settings = await GetSettings();
-
-            if (settings == null || !settings.HasTileWide)
-            {
-                return NotFound();
-            }
-
-            _contentTypeProvider.TryGetContentType(settings.TileWidePath, out var contentType);
-            return File(await _mediaFileStore.GetFileStreamAsync(settings.TileWidePath), contentType ?? DefaultMimeTypes.Tile);
         }
 
         [HttpGet]
