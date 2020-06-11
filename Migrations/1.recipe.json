@@ -1,0 +1,229 @@
+{
+  "steps": [
+    {
+      "name": "ContentDefinition",
+      "ContentTypes": [
+        {
+          "Name": "FaviconSettings",
+          "DisplayName": "Favicon",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Stereotype": "CustomSettings"
+            },
+            "FullTextAspectSettings": {}
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "FaviconSettings",
+              "Name": "FaviconSettings",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "ContentParts": [
+        {
+          "Name": "FaviconSettings",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "MediaField",
+              "Name": "Favicon",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Default Favicon",
+                  "Position": "1"
+                },
+                "MediaFieldSettings": {
+                  "Hint": "Icon should be a .png with dimensions of 16x16.",
+                  "Multiple": false
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "MediaField",
+              "Name": "AppleTouchIcon",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Apple Touch Icon",
+                  "Position": "3"
+                },
+                "MediaFieldSettings": {
+                  "Hint": "Icon should be a .png with dimensions of 180x180.",
+                  "Multiple": false
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "MediaField",
+              "Name": "Tile",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Tile",
+                  "Position": "7"
+                },
+                "MediaFieldSettings": {
+                  "Hint": "Tile should be a .png with dimensions of 150x150.",
+                  "Multiple": false
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "MediaField",
+              "Name": "BrowserConfig",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Browser Config",
+                  "Position": "8"
+                },
+                "MediaFieldSettings": {
+                  "Hint": "Config file is used to customize the tile displayed when users pin your site to the Windows 8.1 start screen. In there you can define custom tile colors, custom images or even live tiles.",
+                  "Multiple": false
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "MediaField",
+              "Name": "WebAppManifest",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Web App Manifest",
+                  "Position": "9"
+                },
+                "MediaFieldSettings": {
+                  "Hint": "Provides information about a web application in a JSON text file.",
+                  "Multiple": false
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "MediaField",
+              "Name": "FaviconFallback",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Favicon Fallback",
+                  "Position": "0"
+                },
+                "MediaFieldSettings": {
+                  "Hint": "Icon should be a .ico with dimensions of 32x32.",
+                  "Multiple": false
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "MediaField",
+              "Name": "LargeFavicon",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Large Favicon",
+                  "Position": "2"
+                },
+                "MediaFieldSettings": {
+                  "Hint": "Icon should be a .png with dimensions of 32x32.",
+                  "Multiple": false
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "MediaField",
+              "Name": "AndroidSmallIcon",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Android Small Icon",
+                  "Position": "5"
+                },
+                "MediaFieldSettings": {
+                  "Hint": "Icon should be a .png with dimensions of 192x192.",
+                  "Multiple": false
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "MediaField",
+              "Name": "AndroidLargeIcon",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Android Large Icon",
+                  "Position": "6"
+                },
+                "MediaFieldSettings": {
+                  "Hint": "Icon should be a .png with dimensions of 512x512.",
+                  "Multiple": false
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "MediaField",
+              "Name": "SafariPinnedTab",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Safari Pinned Tab",
+                  "Position": "10"
+                },
+                "MediaFieldSettings": {
+                  "Hint": "Icon that the user sees when they pin your site within Safari.",
+                  "Multiple": false
+                },
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "SafariPinnedTabColour",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Safari Pinned Tab Colour",
+                  "Editor": "Color",
+                  "Position": "11"
+                },
+                "TextFieldSettings": {},
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "TileColour",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Tile Colour",
+                  "Editor": "Color",
+                  "Position": "8"
+                },
+                "TextFieldSettings": {},
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "ThemeColour",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Theme Colour",
+                  "Editor": "Color",
+                  "Position": "12"
+                },
+                "TextFieldSettings": {
+                  "Hint": "Set the toolbar colour."
+                },
+                "ContentIndexSettings": {}
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -78,22 +78,6 @@
             },
             {
               "FieldName": "MediaField",
-              "Name": "TileWide",
-              "DisplayName": "Tile Wide",
-              "Settings": {
-                "ContentPartFieldSettings": {
-                  "DisplayName": "TileWide",
-                  "Position": "3"
-                },
-                "MediaFieldSettings": {
-                  "Hint": "Tile should be a .png with dimensions of 558x270.",
-                  "Multiple": false
-                },
-                "ContentIndexSettings": {}
-              }
-            },
-            {
-              "FieldName": "MediaField",
               "Name": "BrowserConfig",
               "Settings": {
                 "ContentPartFieldSettings": {
