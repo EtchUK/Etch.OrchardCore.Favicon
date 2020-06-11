@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.0-rc1</Version>
+    <Version>0.2.0-rc1</Version>
     <PackageId>Etch.OrchardCore.Favicon</PackageId>
     <Title>Favicons</Title>
     <Authors>Etch UK Ltd.</Authors>
@@ -13,13 +13,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OrchardCore.ContentFields" Version="1.0.0-rc1-10004" />
-    <PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-rc1-10004" />
-    <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-rc1-10004" />
-    <PackageReference Include="OrchardCore.Media" Version="1.0.0-rc1-10004" />
-    <PackageReference Include="OrchardCore.Navigation" Version="1.0.0-rc1-10004" />
-    <PackageReference Include="OrchardCore.ResourceManagement" Version="1.0.0-rc1-10004" />
-    <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc1-10004" />
+    <PackageReference Include="OrchardCore.ContentFields" Version="1.0.0-rc2-13450" />
+    <PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-rc2-13450" />
+    <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-rc2-13450" />
+    <PackageReference Include="OrchardCore.Media" Version="1.0.0-rc2-13450" />
+    <PackageReference Include="OrchardCore.Navigation" Version="1.0.0-rc2-13450" />
+    <PackageReference Include="OrchardCore.ResourceManagement" Version="1.0.0-rc2-13450" />
+    <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc2-13450" />
   </ItemGroup>
 
   <ItemGroup>
