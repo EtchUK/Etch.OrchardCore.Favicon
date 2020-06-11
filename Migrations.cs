@@ -30,6 +30,13 @@ namespace Etch.OrchardCore.Favicon
             return 1;
         }
 
+        public async Task<int> UpdateFrom1Async()
+        {
+            await _recipeMigrator.ExecuteAsync("1.recipe.json", this);
+
+            return 2;
+        }
+
         #endregion
     }
 }

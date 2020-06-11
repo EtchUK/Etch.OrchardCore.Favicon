@@ -53,17 +53,37 @@ namespace Etch.OrchardCore.Favicon.Filters
 
                 if (faviconSettings != null && faviconSettings.HasAppleTouchIcon)
                 {
-                    _resourceManager.RegisterLink(new LinkEntry { Href = $"{pathBase}/icon.png", Rel = "apple-touch-icon" });
+                    _resourceManager.RegisterLink(CreateLinkEntry(context, "apple-touch-icon.png", "apple-touch-icon", "180x180"));
                 }
 
-                if (faviconSettings != null && faviconSettings.HasFavicon)
+                if (faviconSettings != null && faviconSettings.HasDefaultFavicon)
                 {
-                    _resourceManager.RegisterLink(new LinkEntry { Href = $"{pathBase}/favicon.ico", Rel = "shortcut icon" });
+                    _resourceManager.RegisterLink(CreateLinkEntry(context, "favicon-16x16.png", "icon", "16x16", "image/png"));
+                }
+
+                if (faviconSettings != null && faviconSettings.HasLargeFavicon)
+                {
+                    _resourceManager.RegisterLink(CreateLinkEntry(context, "favicon-32x32.png", "icon", "32x32", "image/png"));
                 }
 
                 if (faviconSettings != null && faviconSettings.HasWebAppManifest)
                 {
                     _resourceManager.RegisterLink(new LinkEntry { Href = $"{pathBase}/site.webmanifest", Rel = "manifest" });
+                }
+
+                if (faviconSettings != null && faviconSettings.HasSafariPinnedTab)
+                {
+                    _resourceManager.RegisterLink(CreateLinkEntry(context, "safari-pinned-tab.svg", "mask-icon", null, null, faviconSettings.SafariPinnedTabColourValue));
+                }
+
+                if (faviconSettings != null && faviconSettings.HasTileColour)
+                {
+                    _resourceManager.AppendMeta(new MetaEntry { Name = "msapplication-TileColor", Content = faviconSettings.TileColourValue }, ",");
+                }
+
+                if (faviconSettings != null && faviconSettings.HasThemeColour)
+                {
+                    _resourceManager.AppendMeta(new MetaEntry { Name = "theme-color", Content = faviconSettings.ThemeColourValue }, ",");
                 }
             } 
             catch (Exception ex)
@@ -72,6 +92,32 @@ namespace Etch.OrchardCore.Favicon.Filters
             }
 
             await next.Invoke();
+        }
+
+        #endregion
+
+        #region Helper Methods
+
+        private LinkEntry CreateLinkEntry(ResultExecutingContext context, string href, string rel, string sizes = null, string type = null, string colour = null)
+        {
+            var entry = new LinkEntry { Href = $"{context.HttpContext.Request.PathBase}/{href}", Rel = rel };
+
+            if (!string.IsNullOrWhiteSpace(type))
+            {
+                entry.Type = type;
+            }
+
+            if (!string.IsNullOrWhiteSpace(sizes))
+            {
+                entry.AddAttribute("sizes", sizes);
+            }
+
+            if (!string.IsNullOrWhiteSpace(colour))
+            {
+                entry.AddAttribute("color", colour);
+            }
+
+            return entry;
         }
 
         #endregion
