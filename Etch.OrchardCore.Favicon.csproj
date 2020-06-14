@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.2.0-rc1</Version>
+    <Version>0.2.0-rc2</Version>
     <PackageId>Etch.OrchardCore.Favicon</PackageId>
     <Title>Favicons</Title>
     <Authors>Etch UK Ltd.</Authors>
