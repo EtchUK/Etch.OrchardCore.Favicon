@@ -27,6 +27,7 @@ namespace Etch.OrchardCore.Favicon.Filters
 
         public FaviconFilter(ILogger<FaviconFilter> logger, IResourceManager resourceManager, ISiteService siteService)
         {
+            _logger = logger;
             _resourceManager = resourceManager;
             _siteService = siteService;
         }
@@ -48,7 +49,7 @@ namespace Etch.OrchardCore.Favicon.Filters
             {
                 var pathBase = context.HttpContext.Request.PathBase;
                 var siteSettings = await _siteService.GetSiteSettingsAsync();
-                var faviconSettings = siteSettings.As<ContentItem>("FaviconSettings")?.As<FaviconSettings>() ?? null;
+                var faviconSettings = siteSettings.As<ContentItem>("FaviconSettings")?.As<FaviconSettings>();
 
                 if (faviconSettings != null && faviconSettings.HasAppleTouchIcon)
                 {
