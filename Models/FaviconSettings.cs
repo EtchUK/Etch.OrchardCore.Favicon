@@ -12,13 +12,13 @@ namespace Etch.OrchardCore.Favicon.Models
         {
             get
             {
-                return this.Get<MediaField>("AppleTouchIcon")?.Paths.FirstOrDefault() ?? null;
+                return this.Get<MediaField>("AppleTouchIcon")?.Paths?.FirstOrDefault() ?? null;
             }
         }
 
         public bool HasAppleTouchIcon
         {
-            get { return this.Get<MediaField>("AppleTouchIcon")?.Paths.Any() ?? false; }
+            get { return this.Get<MediaField>("AppleTouchIcon")?.Paths?.Any() ?? false; }
         }
 
         #endregion
@@ -29,13 +29,13 @@ namespace Etch.OrchardCore.Favicon.Models
         {
             get
             {
-                return this.Get<MediaField>("BrowserConfig")?.Paths.FirstOrDefault() ?? null;
+                return this.Get<MediaField>("BrowserConfig")?.Paths?.FirstOrDefault() ?? null;
             }
         }
 
         public bool HasBrowserConfig
         {
-            get { return this.Get<MediaField>("BrowserConfig")?.Paths.Any() ?? false; }
+            get { return this.Get<MediaField>("BrowserConfig")?.Paths?.Any() ?? false; }
         }
 
         #endregion
@@ -46,13 +46,13 @@ namespace Etch.OrchardCore.Favicon.Models
         {
             get
             {
-                return this.Get<MediaField>("Favicon")?.Paths.FirstOrDefault() ?? null;
+                return this.Get<MediaField>("Favicon")?.Paths?.FirstOrDefault() ?? null;
             }
         }
 
         public bool HasFavicon
         {
-            get { return this.Get<MediaField>("Favicon")?.Paths.Any() ?? false; }
+            get { return this.Get<MediaField>("Favicon")?.Paths?.Any() ?? false; }
         }
 
         #endregion
@@ -63,13 +63,13 @@ namespace Etch.OrchardCore.Favicon.Models
         {
             get
             {
-                return this.Get<MediaField>("Tile")?.Paths.FirstOrDefault() ?? null;
+                return this.Get<MediaField>("Tile")?.Paths?.FirstOrDefault() ?? null;
             }
         }
 
         public bool HasTile
         {
-            get { return this.Get<MediaField>("Tile")?.Paths.Any() ?? false; }
+            get { return this.Get<MediaField>("Tile")?.Paths?.Any() ?? false; }
         }
 
         #endregion
@@ -80,13 +80,13 @@ namespace Etch.OrchardCore.Favicon.Models
         {
             get
             {
-                return this.Get<MediaField>("TileWide")?.Paths.FirstOrDefault() ?? null;
+                return this.Get<MediaField>("TileWide")?.Paths?.FirstOrDefault() ?? null;
             }
         }
 
         public bool HasTileWide
         {
-            get { return this.Get<MediaField>("TileWide")?.Paths.Any() ?? false; }
+            get { return this.Get<MediaField>("TileWide")?.Paths?.Any() ?? false; }
         }
 
         #endregion
@@ -97,13 +97,13 @@ namespace Etch.OrchardCore.Favicon.Models
         {
             get
             {
-                return this.Get<MediaField>("WebAppManifest")?.Paths.FirstOrDefault() ?? null;
+                return this.Get<MediaField>("WebAppManifest")?.Paths?.FirstOrDefault() ?? null;
             }
         }
 
         public bool HasWebAppManifest
         {
-            get { return this.Get<MediaField>("WebAppManifest")?.Paths.Any() ?? false; }
+            get { return this.Get<MediaField>("WebAppManifest")?.Paths?.Any() ?? false; }
         }
 
         #endregion
