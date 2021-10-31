@@ -8,7 +8,7 @@ Manage browser related features such as icons (e.g. favicon, apple-touch-icon, e
 
 ## Orchard Core Reference
 
-This module is referencing a stable build of Orchard Core ([`1.0.0`](https://www.nuget.org/packages/OrchardCore.Module.Targets/1.0.0)).
+This module is referencing a stable build of Orchard Core ([`1.1.0`](https://www.nuget.org/packages/OrchardCore.Module.Targets/1.1.0)).
 
 ## Installing
 
