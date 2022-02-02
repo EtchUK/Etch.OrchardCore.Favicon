@@ -1,5 +1,6 @@
 ﻿using OrchardCore.ContentManagement;
 using OrchardCore.Media.Fields;
+using OrchardCore.ContentFields.Fields;
 using System.Linq;
 
 namespace Etch.OrchardCore.Favicon.Models
