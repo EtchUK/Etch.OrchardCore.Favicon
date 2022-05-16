@@ -81,11 +81,11 @@ namespace Etch.OrchardCore.Favicon.Models
             }
         }
 
-        public string FallbackFaviconPath
+        public string FaviconFallbackPath
         {
             get
             {
-                return this.Get<MediaField>("FallbackFavicon")?.Paths?.FirstOrDefault() ?? null;
+                return this.Get<MediaField>("FaviconFallback")?.Paths?.FirstOrDefault() ?? null;
             }
         }
 
@@ -94,9 +94,9 @@ namespace Etch.OrchardCore.Favicon.Models
             get { return this.Get<MediaField>("Favicon")?.Paths?.Any() ?? false; }
         }
 
-        public bool HasFallbackFavicon
+        public bool HasFaviconFallback
         {
-            get { return this.Get<MediaField>("FallbackFavicon")?.Paths?.Any() ?? false; }
+            get { return this.Get<MediaField>("FaviconFallback")?.Paths?.Any() ?? false; }
         }
 
         public bool HasLargeFavicon
