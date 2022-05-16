@@ -103,13 +103,13 @@ namespace Etch.OrchardCore.Favicon.Controllers
         {
             var settings = await GetSettings();
 
-            if (settings == null || !settings.HasFallbackFavicon)
+            if (settings == null || !settings.HasFaviconFallback)
             {
                 return NotFound();
             }
 
-            _contentTypeProvider.TryGetContentType(settings.FallbackFaviconPath, out var contentType);
-            return File(await _mediaFileStore.GetFileStreamAsync(settings.FallbackFaviconPath), contentType ?? DefaultMimeTypes.Favicon);
+            _contentTypeProvider.TryGetContentType(settings.FaviconFallbackPath, out var contentType);
+            return File(await _mediaFileStore.GetFileStreamAsync(settings.FaviconFallbackPath), contentType ?? DefaultMimeTypes.Favicon);
         }
 
         [HttpGet]
