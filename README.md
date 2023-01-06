@@ -4,11 +4,11 @@ Manage browser related features such as icons (e.g. favicon, apple-touch-icon, e
 
 ## Build Status
 
-[![Build Status](https://secure.travis-ci.org/etchuk/Etch.OrchardCore.Favicon.png?branch=master)](http://travis-ci.org/etchuk/Etch.OrchardCore.Favicon) [![NuGet](https://img.shields.io/nuget/v/Etch.OrchardCore.Favicon.svg)](https://www.nuget.org/packages/Etch.OrchardCore.Favicon)
+[![NuGet](https://img.shields.io/nuget/v/Etch.OrchardCore.Favicon.svg)](https://www.nuget.org/packages/Etch.OrchardCore.Favicon)
 
 ## Orchard Core Reference
 
-This module is referencing a stable build of Orchard Core ([`1.4.0`](https://www.nuget.org/packages/OrchardCore.Module.Targets/1.4.0)).
+This module is referencing a stable build of Orchard Core ([`1.5.0`](https://www.nuget.org/packages/OrchardCore.Module.Targets/1.5.0)).
 
 ## Installing
 
