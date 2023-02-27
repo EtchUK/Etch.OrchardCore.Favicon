@@ -1,4 +1,5 @@
 ﻿using Etch.OrchardCore.Favicon.Filters;
+using Etch.OrchardCore.Favicon.Helpers;
 using Etch.OrchardCore.Favicon.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +16,7 @@ namespace Etch.OrchardCore.Favicon
             services.AddContentPart<FaviconSettings>();
 
             services.AddScoped<IDataMigration, Migrations>();
+            services.AddScoped<IFaviconColourValueMigrator, FaviconColourValueMigrator>();
 
             services.Configure<MvcOptions>((options) =>
             {

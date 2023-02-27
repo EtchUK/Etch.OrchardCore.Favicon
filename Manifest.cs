@@ -7,5 +7,5 @@ using OrchardCore.Modules.Manifest;
     Name = "Favicons",
     Version = "$(VersionNumber)",
     Website = "https://etchuk.com",
-    Dependencies = new string[] { "OrchardCore.ContentFields", "OrchardCore.Media" }
+    Dependencies = new string[] { "OrchardCore.ContentFields", "OrchardCore.Media", "Etch.OrchardCore.Fields" }
 )]

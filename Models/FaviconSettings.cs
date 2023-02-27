@@ -2,6 +2,7 @@
 using OrchardCore.Media.Fields;
 using OrchardCore.ContentFields.Fields;
 using System.Linq;
+using Etch.OrchardCore.Fields.Colour.Fields;
 
 namespace Etch.OrchardCore.Favicon.Models
 {
@@ -123,15 +124,12 @@ namespace Etch.OrchardCore.Favicon.Models
 
         public bool HasSafariPinnedTabColour
         {
-            get { return !string.IsNullOrWhiteSpace(this.Get<TextField>("SafariPinnedTabColour")?.Text); }
+            get { return !string.IsNullOrWhiteSpace(SafariPinnedTabColour?.Value); }
         }
 
-        public string SafariPinnedTabColourValue
+        public ColourField SafariPinnedTabColour
         {
-            get
-            {
-                return this.Get<TextField>("SafariPinnedTabColour")?.Text ?? null;
-            }
+            get; set;
         }
 
         public string SafariPinnedTabPath
@@ -148,15 +146,12 @@ namespace Etch.OrchardCore.Favicon.Models
 
         public bool HasThemeColour
         {
-            get { return !string.IsNullOrWhiteSpace(this.Get<TextField>("ThemeColour")?.Text); }
+            get { return !string.IsNullOrWhiteSpace(ThemeColour?.Value); }
         }
 
-        public string ThemeColourValue
+        public ColourField ThemeColour
         {
-            get
-            {
-                return this.Get<TextField>("ThemeColour")?.Text ?? null;
-            }
+            get; set;
         }
 
         #endregion
@@ -170,7 +165,12 @@ namespace Etch.OrchardCore.Favicon.Models
 
         public bool HasTileColour
         {
-            get { return !string.IsNullOrWhiteSpace(this.Get<TextField>("TileColour")?.Text); }
+            get { return !string.IsNullOrWhiteSpace(TileColour?.Value); }
+        }
+
+        public ColourField TileColour
+        {
+            get; set;
         }
 
         public string TilePath
@@ -178,14 +178,6 @@ namespace Etch.OrchardCore.Favicon.Models
             get
             {
                 return this.Get<MediaField>("Tile")?.Paths?.FirstOrDefault() ?? null;
-            }
-        }
-
-        public string TileColourValue
-        {
-            get
-            {
-                return this.Get<TextField>("TileColour")?.Text ?? null;
             }
         }
 

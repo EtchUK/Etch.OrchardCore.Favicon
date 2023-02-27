@@ -73,17 +73,17 @@ namespace Etch.OrchardCore.Favicon.Filters
 
                 if (faviconSettings != null && faviconSettings.HasSafariPinnedTab)
                 {
-                    _resourceManager.RegisterLink(CreateLinkEntry(context, "safari-pinned-tab.svg", "mask-icon", null, null, faviconSettings.SafariPinnedTabColourValue));
+                    _resourceManager.RegisterLink(CreateLinkEntry(context, "safari-pinned-tab.svg", "mask-icon", null, null, faviconSettings.SafariPinnedTabColour.Value));
                 }
 
                 if (faviconSettings != null && faviconSettings.HasTileColour)
                 {
-                    _resourceManager.AppendMeta(new MetaEntry { Name = "msapplication-TileColor", Content = faviconSettings.TileColourValue }, ",");
+                    _resourceManager.AppendMeta(new MetaEntry { Name = "msapplication-TileColor", Content = faviconSettings.TileColour.Value }, ",");
                 }
 
                 if (faviconSettings != null && faviconSettings.HasThemeColour)
                 {
-                    _resourceManager.AppendMeta(new MetaEntry { Name = "theme-color", Content = faviconSettings.ThemeColourValue }, ",");
+                    _resourceManager.AppendMeta(new MetaEntry { Name = "theme-color", Content = faviconSettings.ThemeColour.Value }, ",");
                 }
             } 
             catch (Exception ex)
